@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 #%%
 # Data load
-data = pd.read_excel('Databases/Database.xls', index_col=0, Header=None)   
+data = pd.read_excel('Databases/Data_Base.xls', index_col=0, Header=None)   
 
 #%%
 
@@ -70,120 +70,18 @@ Datos.loc['Renewable energy penetration (%)', 'Std'] = std['Renewable Penetratio
 Datos.loc['Battery usage (%)', 'Std'] = std['Battery Usage Percentage'] 
 Datos.loc['Energy curtail (%)', 'Std'] = std['Curtailment Percentage'] 
 
-Datos.to_latex('table')
+print('Mean values')
+print(Datos['Mean'])
+print('Maximun values')
+print(Datos['Max'])
+print('Minumun values')
+print(Datos['Min'])
+print('Standard deviation values')
+print(Datos['Std'])
+Datos.to_latex('Databases/Results')
 
 
-#%%
 
-
-data_1 = MinMaxScaler().fit_transform(data)
-data_1 = pd.DataFrame(data_1, columns=data.columns)
-
-data_2 = pd.DataFrame()
-for i in data.columns:
-    foo = data_1[i]
-    foo = foo.sort_values( ascending=False)
-    data_2[i] = foo.values
-    
-index_LDC = []
-for i in range(len(data_2)):
-    index_LDC.append((i+1)/float(len(data_2))*100)
-    
-data_2.index = index_LDC    
-
-
-size = [20,15]
-label_size = 25
-tick_size = 25 
-
-fig=plt.figure(figsize=size)
-ax=fig.add_subplot(111, label="1")
-mpl.rcParams['xtick.labelsize'] = tick_size 
-mpl.rcParams['ytick.labelsize'] = tick_size 
-
-#ax.plot(index_LDC, data_2['NPC'], c='b')
-#ax.plot(index_LDC, data_2['LCOE'], c='k')
-ax.plot(index_LDC, data_2['Renewable Capacity'], c='y')
-ax.plot(index_LDC, data_2['Battery Capacity'], c='g')
-ax.plot(index_LDC, data_2['Renewable Penetration'], c='r')
-ax.plot(index_LDC, data_2['Battery Usage Percentage'], c='c')
-ax.plot(index_LDC, data_2['Curtailment Percentage'], c='m')
-
-# limits
-ax.set_xlim([0,100])
-ax.set_ylim([0,1])
-# labels
-ax.set_xlabel('%',size=label_size) 
-#ax.set_ylabel('HouseHolds',size=label_size) 
-#NPC = mlines.Line2D([], [], color='b',label='NPC')
-#LCOE = mlines.Line2D([], [], color='k',label='LCOE')
-Battery_Capacity = mlines.Line2D([], [], color='g',label='Battery nominal capacity')
-PV_Capacity = mlines.Line2D([], [], color='y',label='PV nominal capacity')
-Renewable_Penetration = mlines.Line2D([], [], color='r',label='Renewable energy penetration')
-Battery_Usage = mlines.Line2D([], [], color='c',label='Battery usage')
-Energy_Curtailment = mlines.Line2D([], [], color='m',label='Energy curtail')
-
-plt.legend(handles=[
-#        NPC, 
-#        LCOE, 
-        PV_Capacity,
-        Battery_Capacity, 
-        Renewable_Penetration,
-                   Battery_Usage, Energy_Curtailment
- ], bbox_to_anchor=(1, 1),fontsize = 20)
-
-plt.savefig('Plots/Duration_Curve_Results.png', bbox_inches='tight')    
-plt.show()   
-
-#%%
-# duration curve of NPC and LCOE
-data_3 = pd.DataFrame()
-for i in ['NPC', 'LCOE']:
-    foo = data[i]
-    foo = foo.sort_values( ascending=False)
-    data_3[i] = foo.values
-
-index_LDC = []
-for i in range(len(data_3)):
-    index_LDC.append((i+1)/float(len(data_3))*100)
-    
-data_3.index = index_LDC    
-
-
-size = [20,15]
-label_size = 25
-tick_size = 25 
-
-fig=plt.figure(figsize=size)
-ax=fig.add_subplot(111, label="1")
-ax2=fig.add_subplot(111, label="2", frame_on=False)
-
-mpl.rcParams['xtick.labelsize'] = tick_size 
-mpl.rcParams['ytick.labelsize'] = tick_size 
-
-ax.plot(index_LDC, data_3['NPC']/1000, c='b')
-ax2.plot(index_LDC, data_3['LCOE'], c='k')
-
-ax2.yaxis.tick_right()
-ax2.yaxis.set_label_position('right') 
-# limits
-ax.set_xlim([0,100])
-ax.set_ylim([0,1500])
-ax2.set_xlim([0,100])
-ax2.set_ylim([0,0.8])
-# labels
-ax.set_xlabel('%',size=label_size) 
-ax.set_ylabel('NPC (Thousand USD)',size=label_size) 
-ax2.set_ylabel('LCOE (kWh/USD)',size=label_size) 
-
-NPC = mlines.Line2D([], [], color='b',label='NPC')
-LCOE = mlines.Line2D([], [], color='k',label='LCOE')
-
-
-plt.legend(handles=[ NPC, LCOE ], bbox_to_anchor=(1, 1),fontsize = 20)
-
-plt.savefig('Plots/Duration_Curve_Costos.png', bbox_inches='tight')    
-plt.show()   
 
 #%%
 # Box plots NPC and LCOE
@@ -223,79 +121,8 @@ plt.savefig('Plots/BoxPlot_LCOE_NPC.png', bbox_inches='tight')
 plt.show()  
 
 # 72
-#%%
-
-
-data_1 = pd.DataFrame()
-for i in data.columns:
-    foo = data[i]
-    foo = foo.sort_values( ascending=False)
-    data_1[i] = foo.values
-    
-index_LDC = []
-for i in range(len(data_1)):
-    index_LDC.append((i+1)/float(len(data_1))*100)
-    
-data_1.index = index_LDC    
-
-
-size = [20,15]
-label_size = 25
-tick_size = 25 
-
-fig=plt.figure(figsize=size)
-ax=fig.add_subplot(111, label="1")
-ax2=fig.add_subplot(111, label="2", frame_on=False)
-
-mpl.rcParams['xtick.labelsize'] = tick_size 
-mpl.rcParams['ytick.labelsize'] = tick_size 
-
-ax.plot(index_LDC, data_1['Renewable Capacity'], c='y')
-ax.plot(index_LDC, data_1['Battery Capacity'], c='g')
-
-ax2.plot(index_LDC, data_1['Renewable Penetration']*100, c='r')
-ax2.plot(index_LDC, data_1['Battery Usage Percentage'], c='c')
-ax2.plot(index_LDC, data_1['Curtailment Percentage'], c='m')
-
-
-ax2.yaxis.tick_right()
-ax2.yaxis.set_label_position('right') 
-# limits
-ax.set_xlim([0,100])
-ax.set_ylim([0,1000])
-
-
-ax2.set_xlim([0,100])
-ax2.set_ylim([0,100])
-
-
-# labels
-ax.set_xlabel('%',size=label_size) 
-ax.set_ylabel('Nominal Capacities',size=label_size) 
-ax2.set_ylabel('%',size=label_size) 
-
-#NPC = mlines.Line2D([], [], color='b',label='NPC')
-#LCOE = mlines.Line2D([], [], color='k',label='LCOE')
-Battery_Capacity = mlines.Line2D([], [], color='g',label='Battery nominal capacity (kWh)')
-PV_Capacity = mlines.Line2D([], [], color='y',label='PV nominal capacity (kW)')
-Renewable_Penetration = mlines.Line2D([], [], color='r',label='Renewable energy penetration')
-Battery_Usage = mlines.Line2D([], [], color='c',label='Battery usage')
-Energy_Curtailment = mlines.Line2D([], [], color='m',label='Energy curtail')
-
-plt.legend(handles=[
-#        NPC, 
-#        LCOE, 
-        PV_Capacity,
-        Battery_Capacity, 
-        Renewable_Penetration,
-                   Battery_Usage, Energy_Curtailment
- ], bbox_to_anchor=(1, 1),fontsize = 20)
-
-plt.savefig('Plots/Duration_Curve_Capacities.png', bbox_inches='tight')    
-plt.show()   
 
 #%%
-'hola'
 
 name = 'Renewable Penetration'
 data_1 = data.copy()

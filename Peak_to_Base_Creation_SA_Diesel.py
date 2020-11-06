@@ -9,8 +9,8 @@ import pandas as pd
 from joblib import load
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('Onsset_Scenarios/onsset/Bolivia/bo-1-0_0_0_0_0_0.csv', index_col=0) 
-independant_variables = pd.read_csv('Onsset_Scenarios/onsset/Bolivia/Independent_Variables2025.csv', index_col=0) 
+data = pd.read_csv('Onsset_Scenarios/onsset_Surrogate/Bolivia/bo-1-0_0_0_0_0_0.csv', index_col=0) 
+independant_variables = pd.read_csv('Onsset_Scenarios/onsset_Surrogate/Bolivia/Independent_Variables2025.csv', index_col=0)
 Base_to_Peak_grid = 0.5
 
 X = independant_variables['HouseHolds']
@@ -69,4 +69,4 @@ plt.ylabel('Peak to base ratio')
 df = constraints.loc[constraints['Values']==True]
 print(len(df))
 
-Base_To_Peak_Villages.to_csv('Onsset_Scenarios/onsset/Bolivia/Base_to_Peak_SA_Diesel.csv')
+Base_To_Peak_Villages.to_csv('Base_to_Peak/Base_to_Peak_SA_Diesel.csv')

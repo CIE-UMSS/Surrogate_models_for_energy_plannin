@@ -68,13 +68,13 @@ foo = 0
 Data = pd.DataFrame()
 Results = pd.DataFrame()
 Renewable_Nominal_Capacity = instance.Renewable_Nominal_Capacity.extract_values()[1]
-village = range(500, 570, 50) #range(50, 570, 50)
+village = range(50, 570, 50) #range(50, 570, 50)
 
 Nruns = 150
 
 Data_Villages = pd.read_excel('Data_Base_Low_Lands.xls',index_col=0,Header=None)
-Villages_Already = pd.read_excel('status1.xls',index_col=0,Header=None)
-Data_Villages = Data_Villages.drop(list(Villages_Already['Index']))
+# Villages_Already = pd.read_excel('status1.xls',index_col=0,Header=None)
+# Data_Villages = Data_Villages.drop(list(Villages_Already['Index']))
 
 
 

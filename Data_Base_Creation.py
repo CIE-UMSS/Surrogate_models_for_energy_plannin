@@ -10,7 +10,7 @@ import pandas as pd
 
 data = pd.DataFrame()
 
-#Status = pd.read_excel('status1.xls', index_col=0, Header=None)
+Status = pd.read_excel('status.xls', index_col=0, Header=None)
 
 for i in range(50,570,50):
     for n in range(150):
@@ -77,14 +77,14 @@ for i in range(50,570,50):
         data.loc[name, 'Generator Nominal capacity'] = Data_Generator['Generator 1']['Generator Nominal Capacity (W)']   
         data.loc[name, 'Generator Number'] = Data_Generator['Generator 1']['Number of Generators']           
         data.loc[name,'HouseHolds'] = i 
-#        data.loc[name,'Gap'] = Status.loc[name, 'Gap']
-#        data.loc[name,'Time'] = Status.loc[name, 'Time']
-#        data.loc[name,'Y'] = -Status.loc[name, 'Y_deg']
+        data.loc[name,'Gap'] = Status.loc[name, 'Gap']
+        data.loc[name,'Time'] = Status.loc[name, 'Time']
+        data.loc[name,'Y'] = -Status.loc[name, 'Y_deg']
 
 
 
     data = round(data,2)
-    data.to_excel('Data_Base.xls')        
+    data.to_excel('Databases/Data_Base.xls')        
         
         
         

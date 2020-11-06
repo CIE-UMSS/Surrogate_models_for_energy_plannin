@@ -46,22 +46,7 @@ y, X = shuffle(y, X, random_state=10)
 #%%
 X = np.array(X)
 X = X.reshape(-1, 1)
-#%%
 
-scoring ='neg_mean_absolute_error' #'r2' 'neg_mean_absolute_error' # 'neg_mean_squared_error'
-
-lm = linear_model.LinearRegression(fit_intercept=True)
-
-Results = cross_validate(lm, X, y, cv=5,return_train_score=True,n_jobs=-1
-                         , scoring = scoring       )
-
-scores = Results['test_score']
-score = scores.mean()
-if scoring == 'neg_mean_squared_error':
-    score = sq(-score)    
-    print(scoring + ' for the linear regression with the test data set is ' + str(score))
-else:    
-    print(scoring + ' for the linear regression with the test data set is ' + str(score))
 #%%
 l1 = [1]
 l2 = [1]
@@ -117,36 +102,6 @@ plt.scatter(X_new, y_New)
 
 plt.xlabel('HouseHolds')
 plt.ylabel('Peak to base ratio')
-filename = 'Peak_to_Base.joblib'
+filename = 'Results_Regressions/Peak_to_Base.joblib'
 dump(gp, filename) 
-
-#%%
-l1 = [1]
-l2 = [1]
-kernel =  RBF(l1) + RBF(l2)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
-
-gp = GaussianProcessRegressor(kernel=kernel,n_restarts_optimizer=3000, optimizer = 'fmin_l_bfgs_b')
-
-gp = gp.fit(X_train, y_train)
-
-R_2_train = round(gp.score(X_train,y_train),4)
-
-print('R^2 for the gaussian process with the train data set is ' + str(R_2_train))
-
-y_gp = pd.DataFrame(gp.predict(X_test))
-
-R_2_test =  r2_score(round(y_test,2),round(y_gp,2))
-
-print('R^2 for the gaussian process with the test data set is ' + str(R_2_test))
-
-
-MAE_Random =  round(mean_absolute_error(y_test,y_gp),2)
-
-print('MAE for the gaussian process is ' + str(MAE_Random))
-
-
-
-
-
 
