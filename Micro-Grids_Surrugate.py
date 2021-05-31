@@ -213,9 +213,11 @@ for i in village:
 #        filename = 'Instance/instance_' + str(i) + '_' + str(n) +  '.joblib'
 #        dump(instance, filename) 
         
+        logname = 'Results/instance_' + str(i) + '_' + str(n) +  '.log'
         results = opt.solve(instance, tee=True, options_string="mipgap=0.01",
                             warmstart=False,keepfiles=True,
-                            load_solutions=False) # Solving a model instance 
+                            load_solutions=False,
+                            logfile=logname) # Solving a model instance 
        
         Status.loc[name,'Time'] = results.solver.wall_time
         Status.loc[name,'Upper Bound'] = results.problem.upper_bound 

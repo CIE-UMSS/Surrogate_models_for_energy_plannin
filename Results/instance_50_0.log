@@ -1,0 +1,127 @@
+Solver command line: ['C:\\gurobi911\\win64\\bin\\gurobi.bat']
+
+Academic license - for non-commercial use only - expires 2021-06-04
+
+Using license file C:\Users\Dell\gurobi.lic
+
+Read LP format model from file C:\Users\Dell\AppData\Local\Temp\tmp_h5f9qn8.pyomo.lp
+
+Reading time = 0.47 seconds
+
+x70087: 78845 rows, 52567 columns, 188539 nonzeros
+
+Changed value of parameter timelimit to 1800.0
+
+   Prev: inf  Min: 0.0  Max: inf  Default: inf
+
+Changed value of parameter Presolve to 2
+
+   Prev: -1  Min: -1  Max: 2  Default: -1
+
+Changed value of parameter mipgap to 0.01
+
+   Prev: 0.0001  Min: 0.0  Max: inf  Default: 0.0001
+
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (win64)
+
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+
+Optimize a model with 78845 rows, 52567 columns and 188539 nonzeros
+
+Model fingerprint: 0x8113b280
+
+Variable types: 43805 continuous, 8762 integer (8762 binary)
+
+Coefficient statistics:
+
+  Matrix range     [1e-03, 1e+08]
+
+  Objective range  [5e-01, 2e+04]
+
+  Bounds range     [1e+00, 2e+03]
+
+  RHS range        [1e+00, 7e+00]
+
+Presolve removed 10959 rows and 7583 columns
+
+Presolve time: 3.54s
+
+Presolved: 67886 rows, 44984 columns, 168903 nonzeros
+
+Variable types: 36223 continuous, 8761 integer (8761 binary)
+
+
+
+Deterministic concurrent LP optimizer: primal and dual simplex
+
+Showing first log only...
+
+
+
+Presolve removed 17521 rows and 8761 columns
+
+Presolved: 50365 rows, 36223 columns, 133861 nonzeros
+
+
+
+
+
+Root simplex log...
+
+
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+
+   22581    1.9436266e+05   0.000000e+00   2.248970e+05      5s
+
+Concurrent spin time: 0.00s
+
+
+
+Solved with dual simplex
+
+
+
+Root relaxation: objective 1.747616e+05, 24095 iterations, 5.47 seconds
+
+Total elapsed time = 10.22s
+
+
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+
+
+     0     0 174761.645    0 3207          - 174761.645      -     -   15s
+
+H    0     0                    188203.07391 174761.645  7.14%     -   17s
+
+     0     0 187017.720    0 2893 188203.074 187017.720  0.63%     -   29s
+
+
+
+Cutting planes:
+
+  MIR: 1854
+
+  Flow cover: 1812
+
+
+
+Explored 1 nodes (38453 simplex iterations) in 29.86 seconds
+
+Thread count was 12 (of 12 available processors)
+
+
+
+Solution count 1: 188203 
+
+
+
+Optimal solution found (tolerance 1.00e-02)
+
+Best objective 1.882030739136e+05, best bound 1.870177196021e+05, gap 0.6298%
+
+
