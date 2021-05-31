@@ -39,7 +39,7 @@ these are located in the folder  OnSSET_Scenario. The scenario onsset classic is
 can be run from the script Bolivia_runner. In the other hand, the scenario onsset surrogate models can be run from 
 Onsset_Scenario/onssset_Surrogate with the help of Bolivia_runner file. The information needed to create Figure 14, can be extracted from 
 each scenario if the file Plot_Data is run. The information is saved in two excel files called Plot_data_classic and Plot_data_surrogate. The
-coordinates are the X_deg (longitude) and Y_def (latidue) columns.
+coordinates are the X_deg (longitude) and Y_def (latitude) columns.
 
 ### Authors
 
