@@ -1,11 +1,11 @@
-Surrogate models for  energy planning: Application to  Bolivian lowlands isolated communities
+Surrogate models for rural energy planning: Application to  Bolivian lowlands isolated communities
 ========================
 
 ### Description
 
 The purpose of this page is to serve as a permanent repository for the paper:
 
-"Surrogate models for  energy planning: Application to  Bolivian lowlands isolated communities" 
+"Surrogate models for rural energy planning: Application to  Bolivian lowlands isolated communities" 
 
 Inside this repository it is possible to find the scripts and data to reproduce the results of the paper. 
 A brief explanation on how to do this is given below. It is important to note that the paper and this repository are meant to be read as one 
