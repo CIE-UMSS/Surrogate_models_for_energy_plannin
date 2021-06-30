@@ -64,7 +64,7 @@ E-mail: emanuela.colombo@polimi.it
 
 Sylvain Quoilin,
 University of Liege, Belgium,
-E-mail: squoilin@ulg.ac.be 
+E-mail: squoilin@ulg.be 
  
 
 Requirements
