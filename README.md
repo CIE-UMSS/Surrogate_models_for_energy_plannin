@@ -9,8 +9,7 @@ The purpose of this page is to serve as a permanent repository for the paper:
 
 Inside this repository it is possible to find the scripts and data to reproduce the results of the paper. 
 A brief explanation on how to do this is given below. It is important to note that the paper and this repository are meant to be read as one 
-piece, in order to completely understand the theory and practical implementation of the work done. There are additional scripts and data that the
-ones describe below. In order to have a complete description of the scripts, information and how to implement the methology, do not hesitate to contact 
+piece, in order to completely understand the theory and practical implementation of the work done. In order to have a complete description of the scripts, information and how to implement the methology, do not hesitate to contact 
 any of the Authors with the emails provided or through github.
 
 The first step to generate the surrogate models is the creation of a data base of optimal size microgrids. To do this, 
